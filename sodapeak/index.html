@@ -30,6 +30,8 @@ window.CONFIG = {
     bg: "#fbf4ee"
   },
 
+  ticker: ["60-Day Guarantee", "Made in the USA", "Free Shipping on 3 & 6 Bottles", "Just 1 Gummy a Day", "No Hidden Subscription"],
+
   promoBar: "🔥 Official bundle pricing: as low as $49/bottle + FREE shipping on 3 & 6 bottles.",
 
   hero: {
@@ -40,7 +42,8 @@ window.CONFIG = {
     priceLabel: "per bottle",
     priceNote: "with the 6-bottle package<br>+ free shipping",
     button: "Choose my package",
-    badges: ["60-day guarantee", "Made in the USA", "Just 1 gummy a day"],
+    bullets: ["Supports daily energy & stamina", "Muira Puama, Maca & Catuaba", "Just 1 gummy a day", "Made in the USA"],
+    badges: ["60-day guarantee", "No hidden subscription", "Secure checkout"],
     seal: ["60", "DAY<br>GUARANTEE"]
   },
 
@@ -50,6 +53,28 @@ window.CONFIG = {
     { icon: "truck",  title: "Free Shipping",    text: "On 3 & 6 bottle packages" },
     { icon: "lock",   title: "Secure Checkout",  text: "Processed by BuyGoods" }
   ],
+
+  benefits: {
+    kicker: "SodaPeak benefits",
+    titleParts: ["Built for ", "daily male vitality"],
+    intro: "What the maker designed SodaPeak to support, in one gummy a day.",
+    items: [
+      { icon: "bolt",  title: "Daily energy",        text: "Formulated to support steady energy for your daily routine." },
+      { icon: "heart", title: "Drive & vitality",    text: "Botanicals traditionally used to support male vigor." },
+      { icon: "star",  title: "Stamina",             text: "Designed to support physical stamina and endurance." },
+      { icon: "leaf",  title: "Botanical extracts",  text: "Muira Puama, Maca and Catuaba at the core of the formula." },
+      { icon: "clock", title: "One gummy a day",     text: "Chew one in the morning or before your main activities." }
+    ]
+  },
+
+  shippingBanner: { titleParts: ["3 or 6 bottles? ", "Ships free."], text: "Choose the 3 or 6-bottle package and your order ships to your door at no extra cost." },
+
+  testimonials: {
+    source: "",
+    items: []
+  },
+
+  repeatPricingAtEnd: true,
 
   about: {
     kicker: "What is SodaPeak?",
@@ -294,6 +319,44 @@ window.CONFIG = {
   .verdict img{max-width:340px;margin:0 auto}
   @media(max-width:900px){.verdict .wrap{grid-template-columns:1fr}.verdict img{max-width:260px}}
 
+
+  /* v2: ticker */
+  .ticker{background:var(--gold);color:var(--black);overflow:hidden;white-space:nowrap;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08)}
+  .ticker-track{display:inline-flex;gap:44px;padding:13px 0;animation:tick 32s linear infinite;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+  .ticker-track span{display:inline-flex;align-items:center;gap:10px}
+  .ticker-track span::before{content:"✦";color:var(--black);opacity:.55}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+  /* v2: hero bullets */
+  .hero-bullets{list-style:none;display:grid;gap:10px;margin:22px 0 4px}
+  .hero-bullets li{display:flex;gap:10px;align-items:flex-start;font-weight:600;color:rgba(255,255,255,.92)}
+  .hero-bullets li svg{flex:none;width:20px;height:20px;margin-top:3px;color:var(--gold)}
+  /* v2: benefits */
+  .benefits{background:var(--paper)}
+  .ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:40px}
+  .ben{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:26px 22px;text-align:center;transition:transform .2s}
+  .ben:hover{transform:translateY(-4px)}
+  .ben .bi{width:58px;height:58px;border-radius:16px;background:var(--black);color:var(--gold);display:grid;place-items:center;margin:0 auto 14px}
+  .ben .bi svg{width:28px;height:28px}
+  .ben h3{font-size:17px}
+  .ben p{font-size:14.5px;color:var(--ink-soft)}
+  /* v2: shipping banner */
+  .shipban{background:var(--black);color:#fff}
+  .shipban .wrap{display:flex;align-items:center;gap:26px;padding-top:34px;padding-bottom:34px}
+  .shipban .si{flex:none;width:74px;height:74px;border-radius:50%;background:var(--gold);color:var(--black);display:grid;place-items:center}
+  .shipban .si svg{width:38px;height:38px}
+  .shipban h3{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(22px,3vw,30px);line-height:1.1}
+  .shipban h3 span{color:var(--gold)}
+  .shipban p{color:rgba(255,255,255,.75);margin-top:4px}
+  @media(max-width:700px){.shipban .wrap{flex-direction:column;text-align:center}}
+  /* v2: testimonials */
+  .tst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+  .tst{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column}
+  .tst .stars{color:var(--gold);letter-spacing:2px;font-size:18px;margin-bottom:10px}
+  .tst blockquote{color:var(--ink-soft);font-size:16px;flex:1}
+  .tst .who{margin-top:16px;font-weight:800}
+  .tst .who small{display:block;font-weight:500;color:var(--muted);font-size:13px}
+  .tst-src{font-size:13px;color:var(--muted);margin-top:22px;text-align:center}
   footer{background:#0b0b0b;color:#5c554b;font-size:11.5px;padding:44px 0 120px}
   footer p+p{margin-top:12px}
   footer strong{color:#6f675c;font-weight:600}
@@ -347,7 +410,9 @@ window.CONFIG = {
     lock:'<rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>',
     leaf:'<path d="M11 20A7 7 0 0 1 4 13C4 7 9 3 20 3c0 11-4 17-9 17z"/><path d="M4 21c4-6 8-9 12-11"/>',
     star:'<path d="M12 2l2.4 6.9H22l-6 4.6 2.3 7L12 16.3 5.7 20.5 8 13.5 2 8.9h7.6z"/>',
-    heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>'
+    heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
+    bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+    clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
   };
   var icon = function(n){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+(icons[n]||icons.star)+'</svg>'; };
 
@@ -359,15 +424,26 @@ window.CONFIG = {
           '<ul><li><a href="#what">What is it</a></li><li><a href="#ingredients">Ingredients</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#guarantee">Guarantee</a></li><li><a href="#faq">FAQ</a></li></ul>'+
           '<a class="btn btn-sm"'+A+'>Order now</a></div></header><main>';
 
+  var tk = C.ticker || [];
+  var tickerHtml = tk.length ? '<div class="ticker" aria-hidden="true"><div class="ticker-track">'+tk.concat(tk).concat(tk).concat(tk).map(function(t){return '<span>'+esc(t)+'</span>';}).join('')+'</div></div>' : '';
+
   html += '<section class="hero"><div class="wrap hero-grid"><div>'+
           '<span class="kicker">'+esc(h.kicker)+'</span><h1>'+parts(h.titleParts)+'</h1><p class="lead">'+esc(h.text)+'</p>'+
+          ((h.bullets||[]).length ? '<ul class="hero-bullets">'+h.bullets.map(function(b){return '<li>'+check+esc(b)+'</li>';}).join('')+'</ul>' : '')+
           '<div class="hero-price"><div class="now"><sup>$</sup>'+esc(h.price)+'</div><div class="meta"><b>'+esc(h.priceLabel)+'</b>'+allowBr(h.priceNote)+'</div></div>'+
           '<a class="btn" href="#pricing">'+esc(h.button)+' '+arrow+'</a>'+
           '<div class="hero-badges">'+(h.badges||[]).map(function(b){return '<span class="hb">'+check+esc(b)+'</span>';}).join('')+'</div></div>'+
           '<div class="hero-img"><img src="'+esc(img('large'))+'" alt="'+esc(C.product)+'">'+
           (h.seal ? '<div class="seal"><div><b>'+esc(h.seal[0])+'</b>'+allowBr(h.seal[1])+'</div></div>' : '')+'</div></div></section>';
 
+  html += tickerHtml;
   html += '<div class="trust"><div class="wrap">'+(C.trust||[]).map(function(t){return '<div class="t"><div class="ic">'+icon(t.icon)+'</div><div><b>'+esc(t.title)+'</b><small>'+esc(t.text)+'</small></div></div>';}).join('')+'</div></div>';
+
+  var bn = C.benefits;
+  if (bn && (bn.items||[]).length) {
+    html += '<section class="benefits"><div class="wrap center"><span class="kicker">'+esc(bn.kicker)+'</span><h2>'+parts(bn.titleParts,'hl')+'</h2>'+(bn.intro?'<p class="lead">'+esc(bn.intro)+'</p>':'')+'</div>'+
+            '<div class="wrap ben-grid">'+bn.items.map(function(b){return '<div class="ben"><div class="bi">'+icon(b.icon)+'</div><h3>'+esc(b.title)+'</h3><p>'+esc(b.text)+'</p></div>';}).join('')+'</div></section>';
+  }
 
   var ab = C.about;
   html += '<section id="what"><div class="wrap split"><div class="split-img"><img src="'+esc(img('single'))+'" alt="'+esc(C.product)+'"></div><div>'+
@@ -386,7 +462,7 @@ window.CONFIG = {
           '<div class="pc-card cons"><h3>'+cross+'Cons</h3><ul>'+(C.cons||[]).map(function(p){return '<li>'+cross+esc(p)+'</li>';}).join('')+'</ul></div></div></section>';
 
   var pr = C.pricing;
-  html += '<section id="pricing" class="pricing"><div class="wrap center"><span class="kicker">Official pricing</span><h2>Choose your <span class="hl">package</span></h2><p class="lead">'+esc(pr.intro)+'</p></div><div class="wrap price-grid">'+
+  var pricingHtml = function(id, kicker, title){ return '<section'+(id?' id="'+id+'"':'')+' class="pricing"><div class="wrap center"><span class="kicker">'+kicker+'</span><h2>'+title+'</h2><p class="lead">'+esc(pr.intro)+'</p></div><div class="wrap price-grid">'+
           (pr.packages||[]).map(function(p){
             return '<div class="pcard'+(p.best?' best':'')+'"><div class="top">'+esc(p.label)+'</div><div class="body">'+
               '<div class="qty">'+esc(p.qty)+'</div><div class="supply">'+esc(p.supply)+'</div>'+
@@ -396,14 +472,28 @@ window.CONFIG = {
               '<a class="btn btn-block"'+A+'>Buy now</a><div class="cards-pay"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>DISCOVER</span></div>'+
               '<div class="total">Total: '+(p.oldTotal?'<s>'+esc(p.oldTotal)+'</s>':'')+'<b>'+esc(p.total)+'</b></div>'+
               '<div class="ship'+(p.freeShipping?' free':'')+'">'+esc(p.shipping)+'</div></div></div>';
-          }).join('')+'</div><p class="price-note">'+esc(pr.note)+'</p></section>';
+          }).join('')+'</div><p class="price-note">'+esc(pr.note)+'</p></section>'; };
+
+  var sb = C.shippingBanner;
+  if (sb) html += '<div class="shipban"><div class="wrap"><div class="si">'+icon('truck')+'</div><div><h3>'+parts(sb.titleParts)+'</h3><p>'+esc(sb.text)+'</p></div></div></div>';
+
+  html += pricingHtml('pricing', 'Official pricing', 'Choose your <span class="hl">package</span>');
 
   var g = C.guarantee;
   html += '<section id="guarantee" class="guarantee"><div class="wrap"><div class="box"><div class="gseal"><div><b>'+esc(g.days)+'</b>DAY<br>MONEY-BACK</div></div><div>'+
           '<span class="kicker">Zero-risk trial</span><h2>'+parts(g.titleParts,'hl')+'</h2><p>'+esc(g.text)+'</p></div></div></div></section>';
 
+  var ts = C.testimonials || {};
+  if ((ts.items||[]).length) {
+    html += '<section><div class="wrap center"><span class="kicker">Customer stories</span><h2>What customers <span class="hl">are saying</span></h2></div><div class="wrap"><div class="tst-grid">'+
+            ts.items.map(function(t){return '<div class="tst"><div class="stars">★★★★★</div><blockquote>"'+esc(t.text)+'"</blockquote><div class="who">'+esc(t.name)+(t.detail?'<small>'+esc(t.detail)+'</small>':'')+'</div></div>';}).join('')+
+            '</div>'+(ts.source?'<p class="tst-src">'+esc(ts.source)+'. Individual results vary.</p>':'<p class="tst-src">Individual results vary.</p>')+'</div></section>';
+  }
+
   html += '<section id="faq" style="padding-top:20px"><div class="wrap center"><span class="kicker">FAQ</span><h2>Common <span class="hl">questions</span></h2></div><div class="wrap faq">'+
           (C.faq||[]).map(function(f){return '<details><summary>'+esc(f.q)+'</summary><p>'+esc(f.a)+'</p></details>';}).join('')+'</div></section>';
+
+  if (C.repeatPricingAtEnd) html += pricingHtml('', 'Special pricing', 'Start your <span class="hl">supply today</span>');
 
   var v = C.verdict;
   html += '<section class="verdict"><div class="wrap"><div><span class="kicker">Final verdict</span><h2>'+parts(v.titleParts,'hl')+'</h2>'+
